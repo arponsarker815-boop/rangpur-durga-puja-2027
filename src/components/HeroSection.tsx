@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { pujaAudio } from '../utils/audio';
 import { DivineTrishulAura } from './CartoonMascots';
 import { Calendar, Compass, Sparkles, Music2, Share2, Volume2, MapPin } from 'lucide-react';
+import heroCartoonImg from '../assets/images/rangpur_durga_cartoon_hero_1794262927895.jpg';
 
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
@@ -220,7 +221,10 @@ export const HeroSection: React.FC<HeroProps> = ({ onNavigate }) => {
             <div className="relative rounded-3xl overflow-hidden border-2 border-amber-300/80 shadow-2xl bg-stone-900 group">
               {/* High fidelity generated Rangpur cartoon illustration */}
               <img
-                src="/src/assets/images/rangpur_durga_cartoon_hero_1794262927895.jpg"
+                src={heroCartoonImg}
+                onError={(e) => {
+                  e.currentTarget.src = '/images/rangpur_durga_cartoon_hero_1794262927895.jpg';
+                }}
                 alt="Cartoon illustration of Goddess Durga riding lion in Rangpur with Tajhat Rajbari Palace and Bangladeshi rickshaw in autumn kash phool"
                 referrerPolicy="no-referrer"
                 className="w-full h-[400px] sm:h-[480px] lg:h-[520px] object-cover transition-transform duration-700 group-hover:scale-105"

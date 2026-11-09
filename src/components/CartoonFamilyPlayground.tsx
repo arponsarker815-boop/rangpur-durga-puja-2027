@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { pujaAudio } from '../utils/audio';
 import { CircularAlponaMandala, BengaliKalkaNoksha } from './AlponaMotifs';
 import { Sparkles, Heart, Music, Flame, Award } from 'lucide-react';
+import cartoonDurgaFamilyImg from '../assets/images/cartoon_durga_family_vahanas_1794261681231.jpg';
 
 interface FamilyMember {
   id: string;
@@ -159,7 +160,10 @@ export const CartoonFamilyPlayground: React.FC = () => {
       {/* Master Cartoon Family Feature Banner */}
       <div className="relative rounded-3xl overflow-hidden border-2 border-amber-300 shadow-xl bg-stone-950 group">
         <img
-          src="/src/assets/images/cartoon_durga_family_vahanas_1794261681231.jpg"
+          src={cartoonDurgaFamilyImg}
+          onError={(e) => {
+            e.currentTarget.src = '/images/cartoon_durga_family_vahanas_1794261681231.jpg';
+          }}
           alt="Bengali cartoon illustration of Goddess Durga family celebrating Durga Puja 2027"
           referrerPolicy="no-referrer"
           className="w-full h-64 sm:h-80 md:h-96 object-cover transition-transform duration-700 group-hover:scale-102"

@@ -16,6 +16,7 @@ import {
   ListOrdered,
   X,
 } from 'lucide-react';
+import pandalStreetCartoonImg from '../assets/images/rangpur_pandal_street_cartoon_1794262928509.jpg';
 
 export const PandalGuide2027: React.FC = () => {
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'City Center' | 'Metropolitan' | 'Rural Sadar'>('all');
@@ -110,7 +111,10 @@ export const PandalGuide2027: React.FC = () => {
 
           <div className="md:col-span-7 relative h-64 md:h-80 overflow-hidden">
             <img
-              src="/src/assets/images/rangpur_pandal_street_cartoon_1794262928509.jpg"
+              src={pandalStreetCartoonImg}
+              onError={(e) => {
+                e.currentTarget.src = '/images/rangpur_pandal_street_cartoon_1794262928509.jpg';
+              }}
               alt="Cartoon illustration of Rangpur Durga Puja street scene with battery easy-bike, illuminated arch and chotpoti stall"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"

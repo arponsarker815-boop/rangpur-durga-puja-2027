@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { CircularAlponaMandala, BengaliKalkaNoksha, MangalGhotCartoon } from './AlponaMotifs';
 import { pujaAudio } from '../utils/audio';
 import { Paintbrush, RotateCcw, Download, Sparkles, Palette, Check } from 'lucide-react';
+import kashphoolAlponaImg from '../assets/images/kashphool_alpona_autumn_bg_1794261681076.jpg';
 
 const ALPONA_COLORS = [
   { name: 'Traditional Pituli White (পিটুলি সাদা)', hex: '#ffffff' },
@@ -236,7 +237,10 @@ export const AlponaStudio: React.FC = () => {
 
           <div className="md:col-span-7 relative h-64 md:h-80 overflow-hidden">
             <img
-              src="/src/assets/images/kashphool_alpona_autumn_bg_1794261681076.jpg"
+              src={kashphoolAlponaImg}
+              onError={(e) => {
+                e.currentTarget.src = '/images/kashphool_alpona_autumn_bg_1794261681076.jpg';
+              }}
               alt="Autumn landscape of Bengal with Kash phool and sacred white Alpona leading to illuminated Durga pandal"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"

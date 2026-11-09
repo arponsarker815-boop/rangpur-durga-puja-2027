@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Copy, Check, Download, Sparkles, Heart } from 'lucide-react';
+import rangpurDurgaHeroImg from '../assets/images/rangpur_durga_cartoon_hero_1794262927895.jpg';
+import rangpurPandalStreetImg from '../assets/images/rangpur_pandal_street_cartoon_1794262928509.jpg';
+import cartoonDhakiImg from '../assets/images/cartoon_dhaki_dhunuchi_1794260145095.jpg';
 
 interface GreetingCardMakerProps {
   onWishCreated?: () => void;
@@ -32,17 +35,20 @@ const CARD_BACKGROUNDS = [
   {
     id: 'rangpur_durga',
     label: 'রংপুর তাজহাট ও দুর্গা',
-    image: '/src/assets/images/rangpur_durga_cartoon_hero_1794262927895.jpg',
+    image: rangpurDurgaHeroImg,
+    fallback: '/images/rangpur_durga_cartoon_hero_1794262927895.jpg',
   },
   {
     id: 'rangpur_street',
     label: 'রংপুর মণ্ডপ ও ইজিবাইক',
-    image: '/src/assets/images/rangpur_pandal_street_cartoon_1794262928509.jpg',
+    image: rangpurPandalStreetImg,
+    fallback: '/images/rangpur_pandal_street_cartoon_1794262928509.jpg',
   },
   {
     id: 'dhaki',
     label: 'ঢাকি ও ধুনুচি নাচ',
-    image: '/src/assets/images/cartoon_dhaki_dhunuchi_1794260145095.jpg',
+    image: cartoonDhakiImg,
+    fallback: '/images/cartoon_dhaki_dhunuchi_1794260145095.jpg',
   },
 ];
 
@@ -109,6 +115,9 @@ export const GreetingCardMaker: React.FC<GreetingCardMakerProps> = () => {
                 >
                   <img
                     src={bg.image}
+                    onError={(e) => {
+                      if (bg.fallback) e.currentTarget.src = bg.fallback;
+                    }}
                     alt={bg.label}
                     referrerPolicy="no-referrer"
                     className="w-full h-16 object-cover rounded-xl mb-1.5 group-hover:scale-105 transition-transform"
@@ -199,6 +208,9 @@ export const GreetingCardMaker: React.FC<GreetingCardMakerProps> = () => {
             <div className="relative h-60 w-full overflow-hidden">
               <img
                 src={selectedBg.image}
+                onError={(e) => {
+                  if (selectedBg.fallback) e.currentTarget.src = selectedBg.fallback;
+                }}
                 alt={selectedBg.label}
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover"
