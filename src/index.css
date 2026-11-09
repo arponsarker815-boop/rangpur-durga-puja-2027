@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-festive: 'Rozha One', 'Yatra One', Georgia, serif;
+    --font-heading: 'Yatra One', cursive, sans-serif;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-festive {
+  font-family: 'Rozha One', Georgia, serif;
+}
+
+.font-bengali-title {
+  font-family: 'Yatra One', cursive, sans-serif;
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-12px) translateX(6px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(239, 68, 68, 0.75));
+  }
+}
+
+@keyframes bounceCartoon {
+  0%, 100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  40% {
+    transform: translateY(-16px) scale(0.96, 1.05);
+  }
+  60% {
+    transform: translateY(-4px) scale(1.02, 0.98);
+  }
+}
+
+@keyframes spinVerySlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kashSwayWind {
+  0%, 100% {
+    transform: rotate(-5deg) skewX(-3deg);
+  }
+  50% {
+    transform: rotate(7deg) skewX(4deg);
+  }
+}
+
+.animate-spin-very-slow {
+  animation: spinVerySlow 80s linear infinite;
+}
+
+.animate-kash-sway {
+  animation: kashSwayWind 3.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fef3c7;
+}
+::-webkit-scrollbar-thumb {
+  background: #f59e0b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d97706;
+}
